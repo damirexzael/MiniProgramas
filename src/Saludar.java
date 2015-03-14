@@ -47,7 +47,6 @@ public class Saludar {
 			System.out.println("Desde: " + tarifa.getDesde());
 			System.out.println("Hasta: " + tarifa.getHasta());
 			System.out.println("Precio: " + tarifa.getPrecio());
-			System.out.println("Lugar: " + tarifa.getLugar());
 
 		    
 		}
@@ -55,29 +54,26 @@ public class Saludar {
 	}
 	
 	private static void agregarTarifas(ArrayList<Tarifa> listaTarifas) {
-		Tarifa tarifa1 = new Tarifa("primera");
-		tarifa1.setDesde("Santiago");
-		tarifa1.setHasta("Valparaiso");
+		Tarifa tarifa1 = new Tarifa("Santiago", "Valparaiso");
 		tarifa1.setPrecio(2500);
-		listaTarifas.add(tarifa1);
-		Tarifa tarifa2 = new Tarifa("segunda");
-		tarifa2.setDesde("Temuco");
-		tarifa2.setHasta("Valparaiso");
+		if(!Tarifa.estaLaTarifa(listaTarifas, tarifa1.getDesde(), tarifa1.getHasta()))
+			listaTarifas.add(tarifa1);
+		Tarifa tarifa2 = new Tarifa("Temuco", "Valparaiso");
 		tarifa2.setPrecio(6500);
-		listaTarifas.add(tarifa2);
-		Tarifa tarifa3 = new Tarifa("tercera");
-//		tarifa3.setDesde("Temuco");
-//		tarifa3.setHasta("Valparaiso");
-//		tarifa3.setPrecio(15000);
-		listaTarifas.add(tarifa3);
-		Tarifa tarifa4 = new Tarifa("tercera");
-		tarifa4.setDesde("Temuco");
-		tarifa4.setHasta("Valparaiso");
+		if(!Tarifa.estaLaTarifa(listaTarifas, tarifa2.getDesde(), tarifa2.getHasta()))
+			listaTarifas.add(tarifa2);
+		Tarifa tarifa3 = new Tarifa("Temuco", "Valparaiso");
+		tarifa3.setPrecio(15000);
+		if(!Tarifa.estaLaTarifa(listaTarifas, tarifa3.getDesde(), tarifa3.getHasta()))
+			listaTarifas.add(tarifa3);
+		Tarifa tarifa4 = new Tarifa("Temuco", "Valparaiso");
 		tarifa4.setPrecio(15000);
-
-	    int index = listaTarifas.indexOf( new Tarifa("tercera"));
-	    if(index == -1)
+		if(!Tarifa.estaLaTarifa(listaTarifas, tarifa4.getDesde(), tarifa4.getHasta()))
 	    	listaTarifas.add(tarifa4);
+		
+//	    int index = listaTarifas.indexOf( new Tarifa("tercera"));
+//	    if(index == -1)
+//	    	listaTarifas.add(tarifa4);
 	}
 
 }
