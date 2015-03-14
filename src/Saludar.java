@@ -34,6 +34,7 @@ public class Saludar {
 		int number;
 		number = entrada.nextInt();
 		System.out.println(number);
+		System.out.println("Esto es una prueba de GitHub");
 	}
 
 }
