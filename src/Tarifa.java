@@ -1,6 +1,10 @@
 import java.util.ArrayList;
 
-
+/**
+ * TARIFAS POR UBICACION
+ * @author Dalkiller
+ *
+ */
 public class Tarifa {
 	/**
 	 * Declaracion de variables privadas
@@ -8,6 +12,7 @@ public class Tarifa {
 	private String desde = new String();
 	private String hasta = new String();
 	private int precio;
+	private ArrayList<Bus> buses = new ArrayList<Bus>();
 	
 	/**
 	 * INICIALIZA LOS PARAMETROS
@@ -20,62 +25,79 @@ public class Tarifa {
 		precio = 0;
 		
 	}
+	public Tarifa(String desde, String hasta, int precio) {
+		this.desde = desde;
+		this.hasta = hasta;
+		this.precio = precio;
+		
+	}
 	
-	/**
-	 * SET DE PRECIO
-	 * @param precio el valor de la tarifa
-	 */
-	public void setPrecio(Integer precio) {
+	
+	
+	public String getDesde() {
+		return desde;
+	}
+
+
+
+	public void setDesde(String desde) {
+		this.desde = desde;
+	}
+
+
+
+	public String getHasta() {
+		return hasta;
+	}
+
+
+
+	public void setHasta(String hasta) {
+		this.hasta = hasta;
+	}
+
+
+
+	public int getPrecio() {
+		return precio;
+	}
+
+
+
+	public void setPrecio(int precio) {
 		this.precio = precio;
 	}
-	
-	/**
-	 * GET DE DESDE
-	 * @return string de donde viene el bus
-	 */
-	public String getDesde() {
-		return this.desde;
+
+
+
+	public ArrayList<Bus> getBuses() {
+		return buses;
 	}
-	
-	/**
-	 * GET DE HASTA
-	 * @return string a donde llega el bus
-	 */
-	public String getHasta() {
-		return this.hasta;
+
+
+
+	public void setBuses(ArrayList<Bus> buses) {
+		this.buses.add(new Bus(null, desde, desde, desde));
 	}
-	
-	/**
-	 * GET PRECIO
-	 * @return int el valor de la tarifa
-	 */
-	public int getPrecio() {
-		return this.precio;
-	}
-	
-	
-	/**
-	 * FUNCIONES GENERALES
-	 */
-	
+
+
+
 	/**
 	 * 
 	 * @param listaTarifas lista de las tarifas
 	 * @param desde string de donde viene el bus
 	 * @param hasta string a donde llega el bus
-	 * @return true si ya existe en listaTarifas estos dos parametros (desde,hasta)
+	 * @return posicion si ya existe en listaTarifas sino -1
 	 */
-	public static boolean estaLaTarifa(ArrayList<Tarifa> listaTarifas, String desde, String hasta) {
-		boolean encontrado = false;
+	public static int estaLaTarifa(ArrayList<Tarifa> listaTarifas, String desde, String hasta) {
+		int encontrado = -1;
 		int i = listaTarifas.size() - 1;
-//		for(int i = 0 ; i < listaTarifas.size() ; i++ ) {
-		while(i > -1 && encontrado == false) {
+		while(i > -1 && encontrado == -1) {
 			Tarifa tarifa = listaTarifas.get(i);
 			if(tarifa.getDesde()==desde && tarifa.getHasta()==hasta)
-				encontrado = true;
+				encontrado = i;
 			i--;
 		}
-//		}
 		return encontrado;
 	}
 	

@@ -1,9 +1,7 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 
 /**
@@ -11,70 +9,81 @@ import java.util.Scanner;
  *
  */
 public class Saludar {
-
-//	static int[] numeros = new int[2];
-//	static int[] num = new int[4];
 	/**
 	 * @param args
-	 * @throws IOException
 	 */
-	public static void main(String[] args) throws IOException {
-		// TODO Auto-generated method stub
-//		numeros[0]=5;
-//		numeros[1]=15;
-//		num=numeros;
-//		System.out.println("hola "+numeros[1]);
-//		System.out.println("tamaño: "+numeros.length);
-//		System.out.println("hola "+num[1]);
-//		System.out.println("tamaño: "+num.length);
-//		BufferedReader usuario = new BufferedReader(new InputStreamReader(System.in));
-//		String dato;
-//		dato = usuario.readLine();
-//		System.out.println("info: " + dato);
-//		Scanner entrada = new Scanner(System.in);
-//		int number;
-//		number = entrada.nextInt();
-//		System.out.println(number);
-//		System.out.println("Esto es una prueba de GitHub");
+	public static void main(String[] args) {
+//		ArrayList<Integer> lista = new ArrayList<Integer>();
+//		ArrayList<Tarifa> listaTarifas = new ArrayList<Tarifa>(); // se crea array de tarifas
+//		agregarTarifas(listaTarifas); // Se guardan algunas tarifas automaticamente
+//		
+//		for(int i=0;i<listaTarifas.size();i++)
+//		{
+//			Tarifa tarifa = (Tarifa)listaTarifas.get(i);
+//			System.out.println("Datos tarifa " + (i + 1));
+//			System.out.println("Desde: " + tarifa.getDesde());
+//			System.out.println("Hasta: " + tarifa.getHasta());
+//			System.out.println("Precio: " + tarifa.getPrecio());
+//
+//		    
+//		}
 		
-		ArrayList<Tarifa> listaTarifas = new ArrayList<Tarifa>(); // se crea array de tarifas
-		agregarTarifas(listaTarifas); // Se guardan algunas tarifas automaticamente
 		
-		for(int i=0;i<listaTarifas.size();i++)
-		{
-			Tarifa tarifa = (Tarifa)listaTarifas.get(i);
-			System.out.println("Datos tarifa " + (i + 1));
-			System.out.println("Desde: " + tarifa.getDesde());
-			System.out.println("Hasta: " + tarifa.getHasta());
-			System.out.println("Precio: " + tarifa.getPrecio());
+		boolean rut = Cliente.validarRut(8058356, 7);
+		
+//		System.out.println("El rut esta " + rut);
+//		
+//		Map <Integer, Tarifa> mp = new HashMap<Integer, Tarifa>();
+//		Tarifa tarifa1 = new Tarifa("Santiago", "Valparaiso");
+//		tarifa1.setPrecio(2500);
+//		mp.put(31233, tarifa1);
+		
+//		System.out.println("20150312: " + mp.get(31233).getDesde());
+//		System.out.println("2234: " + mp.get(2234));
 
-		    
-		}
-		System.out.println("hola mundo");
+		// Instantiate a Date object
+	       Date date = new Date();
+	        
+	       // display time and date using toString()
+	       System.out.println(date.toString());
 		
+//		double numero=924271261324111.0;
+//		numero=(double) 15;
+//		System.out.println(numero + ": " + NumeroPrimo.esPrimo(numero));
+//		System.out.println("Ciclos: " + NumeroPrimo.ciclos);
+//		System.out.println("Divisor: " + NumeroPrimo.divisor);
+		
+
+		
+	   PasswordRecursivo.pass("hola", "0#0", 0, "");
+	   
+
+		// Instantiate a Date object
+		Date date2 = new Date();
+	    
+	   // display time and date using toString()
+	   System.out.println(date2.toString());
+		
+        
 	}
 	
 	private static void agregarTarifas(ArrayList<Tarifa> listaTarifas) {
 		Tarifa tarifa1 = new Tarifa("Santiago", "Valparaiso");
 		tarifa1.setPrecio(2500);
-		if(!Tarifa.estaLaTarifa(listaTarifas, tarifa1.getDesde(), tarifa1.getHasta()))
+		if(Tarifa.estaLaTarifa(listaTarifas, tarifa1.getDesde(), tarifa1.getHasta())==-1)
 			listaTarifas.add(tarifa1);
-		Tarifa tarifa2 = new Tarifa("Temuco", "Valparaiso");
-		tarifa2.setPrecio(6500);
-		if(!Tarifa.estaLaTarifa(listaTarifas, tarifa2.getDesde(), tarifa2.getHasta()))
+		Tarifa tarifa2 = new Tarifa("Temuco", "Valparaiso",6500);
+		if(Tarifa.estaLaTarifa(listaTarifas, tarifa2.getDesde(), tarifa2.getHasta())==-1)
 			listaTarifas.add(tarifa2);
 		Tarifa tarifa3 = new Tarifa("Temuco", "Valparaiso");
 		tarifa3.setPrecio(15000);
-		if(!Tarifa.estaLaTarifa(listaTarifas, tarifa3.getDesde(), tarifa3.getHasta()))
+		if(Tarifa.estaLaTarifa(listaTarifas, tarifa3.getDesde(), tarifa3.getHasta())==-1)
 			listaTarifas.add(tarifa3);
 		Tarifa tarifa4 = new Tarifa("Temuco", "Valparaiso");
 		tarifa4.setPrecio(15000);
-		if(!Tarifa.estaLaTarifa(listaTarifas, tarifa4.getDesde(), tarifa4.getHasta()))
+		if(Tarifa.estaLaTarifa(listaTarifas, tarifa4.getDesde(), tarifa4.getHasta())==-1)
 	    	listaTarifas.add(tarifa4);
 		
-//	    int index = listaTarifas.indexOf( new Tarifa("tercera"));
-//	    if(index == -1)
-//	    	listaTarifas.add(tarifa4);
 	}
 
 }
