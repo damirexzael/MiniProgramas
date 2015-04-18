@@ -1,5 +1,26 @@
+import java.util.Date;
+
 
 public class PasswordRecursivo {
+	
+	public static void main(String[] args) {
+		// Instantiate a Date object
+	       Date date = new Date();
+	        
+	       // display time and date using toString()
+	       System.out.println(date.toString());
+		
+	   PasswordRecursivo.pass("hola", "0#0", 0, "");
+	   
+
+		// Instantiate a Date object
+		Date date2 = new Date();
+	    
+	   // display time and date using toString()
+	   System.out.println(date2.toString());
+		
+        
+	}
 
 	public static void pass(String palabra, String clave, int lugar, String pre) {
 		if(clave.length() <= lugar) {

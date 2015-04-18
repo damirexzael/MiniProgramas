@@ -1,9 +1,35 @@
+import java.util.Date;
+
 /**
  * Analiza si un numero es primo
  * @author Dalkiller
  *
  */
 public class NumeroPrimo {
+	
+	public static void main(String[] args) {
+
+		// Instantiate a Date object
+	       Date date = new Date();
+	        
+	       // display time and date using toString()
+	       System.out.println(date.toString());
+		
+		double numero=924271261324111.0;
+//		numero=(double) 15;
+		System.out.println(numero + ": " + NumeroPrimo.esPrimo(numero));
+		System.out.println("Ciclos: " + NumeroPrimo.ciclos);
+		System.out.println("Divisor: " + NumeroPrimo.divisor);
+		
+		// Instantiate a Date object
+		Date date2 = new Date();
+	    
+	   // display time and date using toString()
+	   System.out.println(date2.toString());
+		
+        
+	}
+	
 	
 	public static double ciclos=0;
 	public static double divisor=1;
